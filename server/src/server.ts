@@ -1,8 +1,8 @@
-import express from 'express';
-import { createUser } from './routes';
+import express from 'express'
+import { createUser } from './routes'
 
-const app = express();
+const app = express()
 
-app.get("/", createUser);
+app.get('/', createUser)
 
-app.listen(3333);
+app.listen(3333)
