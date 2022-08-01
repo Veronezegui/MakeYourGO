@@ -6,10 +6,9 @@ interface User {
 }
 
 class CreateUser {
-
-    execute({name, email, senha}: User) {
-        console.log(name, email, senha)
-    }
+  execute ({ name, email, senha }: User) {
+    console.log(name, email, senha)
+  }
 }
 
-export default new CreateUser;
+export default new CreateUser()
