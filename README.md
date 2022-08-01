@@ -10,8 +10,19 @@
 
 ____________________________________________________________________________________________________________________________
 
-Etapas para editar o projeto:
+### Fluxo para atualizar o projeto:
 
-1 - Sempre que for editar o projeto no github, rode o comando git pull para baixar todas as possíveis atualizações do projeto
+git fetch
 
-2 - 
+git checkout master 
+
+git pull --rebase origin master   <- vai atualizar sua branch master com a branch origin (essa branch é a principal) 
+
+git checkout -B [nome_branch_feature] ex: git checkout -B adiciona-filtro-usuarios 
+
+git add .
+
+git commit -m "msg"
+
+git push origin [nome_branch_feature] ex: git push origin adiciona-filtro-usuario
+
