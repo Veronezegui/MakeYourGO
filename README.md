@@ -1,5 +1,7 @@
 # Bem vindo ao repositório do MakeYourGo
 
+### Instalação Node
+É preciso ter no mínimo o [Node.js](https://nodejs.org/) v16.15+
 ### Etapas para começar a trabalhar no projeto:
 
 1 - Para iniciar o projeto basta dar git clone https://github.com/Veronezegui/MakeYourGO.git em uma pasta do seu computador
