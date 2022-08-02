@@ -8,6 +8,10 @@
 
 2 - Rode o comando yarn em ambas as pastas para instalar as bibliotecas do projeto.
 
+3 - Para rodar o projeto da pasta /mobile rode o comando expo start
+
+4 - Para rodar o projeto da pasta /server rode o comando yarn dev
+
 ____________________________________________________________________________________________________________________________
 
 ### Fluxo para atualizar o projeto:
