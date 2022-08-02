@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 
-import { Container, Form, Title } from "./styles";
+import { Container, Form, Title } from './styles'
 
-import { Input } from "../../components/Input";
+import { Input } from '../../components/Input'
 
-import { Button } from "../../components/Button";
+import { Button } from '../../components/Button'
 
-export function RegisterPage() {
-    return (
+export function RegisterPage () {
+  return (
         <Container>
             <Title>Cadastro</Title>
             <Form>
@@ -18,5 +18,5 @@ export function RegisterPage() {
                 <Button title="Salvar" />
             </Form>
         </Container>
-    )
+  )
 }
