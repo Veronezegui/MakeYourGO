@@ -1,12 +1,12 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React from 'react'
 
-import { HomePage } from './src/pages/HomePage';
-import { RegisterPage } from './src/pages/RegisterPage';
+import { HomePage } from './src/pages/HomePage'
+import { RegisterPage } from './src/pages/RegisterPage'
 
-export default function App() {
+export default function App () {
   return (
-    //<HomePage />
+    // <HomePage />
     <RegisterPage/>
   )
 }
-
