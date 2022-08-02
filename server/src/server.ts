@@ -1,8 +1,15 @@
+/* eslint-disable no-unused-vars */
 import express from 'express'
-import { createUser } from './routes'
+import { usersRoutes } from './routes/user.routes'
 
 const app = express()
 
-app.get('/', createUser)
+app.use(express.json())
 
-app.listen(3333)
+app.use('/users', usersRoutes)
+
+app.get('/', (request, response) => {
+  return response.json({ message: 'Hello World' })
+})
+
+app.listen(3333, () => console.log('Server is running!'))

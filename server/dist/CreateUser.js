@@ -5,4 +5,4 @@ class CreateUser {
         console.log(name, email, senha);
     }
 }
-exports.default = new CreateUser;
+exports.default = new CreateUser();

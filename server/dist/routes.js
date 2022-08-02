@@ -7,9 +7,9 @@ exports.createUser = void 0;
 const CreateUser_1 = __importDefault(require("./CreateUser"));
 function createUser(request, response) {
     CreateUser_1.default.execute({
-        name: "Guilherme",
-        email: "gui.veroneze@gmail.com",
-        senha: "991968"
+        name: 'Guilherme',
+        email: 'gui.veroneze@gmail.com',
+        senha: '991968'
     });
     return response.send();
 }
