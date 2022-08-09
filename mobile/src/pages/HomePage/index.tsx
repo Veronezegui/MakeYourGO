@@ -1,20 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { Container, Title, Carro, Form, SmallText } from './styles'
+import { Container, Form, Buttons, View } from './styles'
+import Makeyourgologo from '../../assets/makeyourgo.svg'
+
+import { FontAwesome5 } from '@expo/vector-icons'
+
+import { TouchableOpacity } from 'react-native'
 
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 
-export function HomePage () {
+export function HomePage ({ navigation }: any) {
+  const [isPassword, setIsPassword] = useState(true)
   return (
         <Container>
-            <Title>MakeYourGO</Title>
-            <Carro source={require('../../assets/image.jpg')} resizeMode="cover"/>
+            <Makeyourgologo />
             <Form>
                 <Input title="Email"/>
-                <Input title="Senha"/>
-                <Button title="Entrar"/>
-                <SmallText>Cadastre-se já</SmallText>
+                <Input
+                    title='senha'
+                    secureTextEntry={isPassword}
+                  />
+                <View>
+                    <TouchableOpacity onPress={() => setIsPassword(!isPassword)}>
+                      { isPassword === true
+                        ? <FontAwesome5 name ='eye-slash' size={24} color="black" />
+                        : <FontAwesome5 name ='eye' size={24} color="black" />
+                      }
+                    </TouchableOpacity>
+                </View>
+              <Buttons>
+                <Button title="Entrar" />
+                <Button title="Cadastrar" navegator={() => { navigation.navigate('RegisterPage') }}/>
+              </Buttons>
             </Form>
 
         </Container>
