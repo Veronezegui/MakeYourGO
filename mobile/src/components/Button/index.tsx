@@ -1,17 +1,18 @@
-import React from "react";
+import React from 'react'
 
-import { Container, Touch, Title } from "./styles";
+import { Container, Touch, Title } from './styles'
 
 interface ButtonProps {
     title: string;
+    navegator ?: () => void
 }
 
-export function Button({title}: ButtonProps) {
-    return (
+export function Button ({ title, navegator }: ButtonProps) {
+  return (
         <Container>
-            <Touch>
+            <Touch onPress={() => navegator && navegator()}>
                 <Title>{title}</Title>
             </Touch>
         </Container>
-    )
+  )
 }

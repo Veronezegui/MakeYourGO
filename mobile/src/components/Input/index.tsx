@@ -3,15 +3,16 @@ import { TextInputProps } from 'react-native'
 
 import { Container, Entry } from './styles'
 
-interface InputProps {
+interface InputProps extends TextInputProps {
     title: string;
 
 }
 
-export function Input ({ title }: InputProps) {
+export function Input ({ title, ...rest }: InputProps) {
   return (
         <Container>
-            <Entry placeholder={title}/>
+            <Entry placeholder={title} {...rest}/>
+
         </Container>
   )
 }
