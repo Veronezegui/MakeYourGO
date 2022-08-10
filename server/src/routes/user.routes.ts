@@ -1,27 +1,25 @@
 /* eslint-disable no-unused-vars */
 import { json, request, response, Router } from 'express'
+import { PostgresUsersRepository } from '../repositories/PostgresUsersRepository'
 
 import { UserRepository } from '../repositories/UsersRepository'
+import { CreateUserService } from '../services/CreateUserService'
 
 const usersRoutes = Router()
-const userRepository = new UserRepository()
+const usersRepository = new UserRepository()
 
 usersRoutes.post('/', (request, response) => {
   const { name, email, senha } = request.body
 
-  const userAlreadyExists = userRepository.findByEmail(email)
+  const createUserService = new CreateUserService(usersRepository)
 
-  if (userAlreadyExists) {
-    return response.status(400).json({ error: 'Esse usuário já existe' })
-  }
-
-  userRepository.create({ name, email, senha })
+  createUserService.execute({ name, email, senha })
 
   return response.status(201).send()
 })
 
 usersRoutes.get('/', (request, response) => {
-  const all = userRepository.list()
+  const all = usersRepository.list()
 
   return response.json(all)
 })
