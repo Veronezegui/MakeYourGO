@@ -1,12 +1,29 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React from 'react'
 
-import { HomePage } from './src/pages/HomePage';
-import { RegisterPage } from './src/pages/RegisterPage';
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-export default function App() {
+import { HomePage } from './src/pages/HomePage'
+import { RegisterPage } from './src/pages/RegisterPage'
+
+const Stack = createNativeStackNavigator()
+
+export default function App () {
   return (
-    //<HomePage />
-    <RegisterPage/>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='HomePage'>
+        <Stack.Screen
+          name='HomePage'
+          component={HomePage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='RegisterPage'
+          component={RegisterPage}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
-

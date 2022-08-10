@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react'
 
-import { Container, Form, Title } from "./styles";
+import { Container, Form, Photo } from './styles'
+import Makeyourgologo from '../../assets/makeyourgo.svg'
+import { Input } from '../../components/Input'
+import { Button } from '../../components/Button'
 
-import { Input } from "../../components/Input";
-
-import { Button } from "../../components/Button";
-
-export function RegisterPage() {
-    return (
+export function RegisterPage () {
+  return (
         <Container>
-            <Title>Cadastro</Title>
+            <Makeyourgologo />
             <Form>
+                <Photo name="md-person-add-outline" size={120} color="white" />
                 <Input title="Nome" />
                 <Input title="Email" />
                 <Input title="Senha" />
@@ -18,5 +18,5 @@ export function RegisterPage() {
                 <Button title="Salvar" />
             </Form>
         </Container>
-    )
+  )
 }

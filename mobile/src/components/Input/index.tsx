@@ -1,18 +1,18 @@
-import React from "react";
-import { TextInputProps } from "react-native";
+import React from 'react'
+import { TextInputProps } from 'react-native'
 
-import { Container, Entry, Line } from "./styles";
+import { Container, Entry } from './styles'
 
-interface InputProps {
+interface InputProps extends TextInputProps {
     title: string;
 
 }
 
-export function Input({title}: InputProps) {
-    return (
+export function Input ({ title, ...rest }: InputProps) {
+  return (
         <Container>
-            <Entry placeholder={title}/>
-            <Line />
+            <Entry placeholder={title} {...rest}/>
+
         </Container>
-    )
+  )
 }
