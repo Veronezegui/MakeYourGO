@@ -1,18 +1,32 @@
-import React from 'react'
-import { TextInputProps } from 'react-native'
+import React, { useState } from 'react';
+import { TextInputProps } from 'react-native';
 
-import { Container, Entry } from './styles'
+import { Container, Entry } from './styles';
 
 interface InputProps extends TextInputProps {
-    title: string;
-
+  title: string;
 }
 
-export function Input ({ title, ...rest }: InputProps) {
-  return (
-        <Container>
-            <Entry placeholder={title} {...rest}/>
+export function Input({ title, ...rest }: InputProps) {
+  const [isFocused, setIsFocused] = useState(false);
 
-        </Container>
-  )
+  function handleInputFocus() {
+    setIsFocused(true);
+  }
+
+  function handleInputBlur() {
+    setIsFocused(false);
+  }
+
+  return (
+    <Container>
+      <Entry
+        placeholder={title}
+        onFocus={handleInputFocus}
+        onBlur={handleInputBlur}
+        isFocused={isFocused}
+        {...rest}
+      />
+    </Container>
+  );
 }
