@@ -9,8 +9,7 @@ import { Button } from '../../components/Button';
 import * as Yup from 'yup';
 import { Alert } from 'react-native';
 import { api } from '../../services/api';
-
-import { useAuth } from '../../contexts/AuthContext';
+import { InputPassword } from '../../components/InputPassword';
 
 export function RegisterPage() {
   const { signIn } = useAuth();
@@ -57,8 +56,17 @@ export function RegisterPage() {
         <Photo name="md-person-add-outline" size={120} color="white" />
         <Input title="Nome" onChangeText={setName} value={name} />
         <Input title="Email" onChangeText={setEmail} value={email} />
+<<<<<<< HEAD
         <Input title="Senha" onChangeText={setSenha} value={senha} />
         <Input
+=======
+        <InputPassword
+          title="Senha"
+          onChangeText={setPassword}
+          value={password}
+        />
+        <InputPassword
+>>>>>>> 0c38d76 (melhora codigo)
           title="Confirmar Senha"
           onChangeText={setConfirmPassword}
           value={confirmPassword}

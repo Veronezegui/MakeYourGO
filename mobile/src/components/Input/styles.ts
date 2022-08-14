@@ -4,7 +4,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 
 export const Container = styled.View`
   width: 100%;
-  margin-bottom: ${RFValue(20)}px;
+  margin-top: ${RFValue(20)}px;
 `;
 
 export const Entry = styled.TextInput.attrs({

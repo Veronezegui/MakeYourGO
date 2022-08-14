@@ -1,12 +1,12 @@
 import styled from 'styled-components/native';
-import { RFValue } from 'react-native-responsive-fontsize';
+import { RFValue, RFPercentage } from 'react-native-responsive-fontsize';
 
 export const Container = styled.View`
   width: 100%;
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: #0f172a;
+  background-color: #001433;
 `;
 
 export const Title = styled.Text`
@@ -15,8 +15,7 @@ export const Title = styled.Text`
 `;
 
 export const Form = styled.View`
-  width: 100%;
-  padding: ${RFValue(0)}px ${RFValue(20)}px ${RFValue(0)}px ${RFValue(20)}px;
+  width: ${RFPercentage(52)}px
   justify-content: center;
   align-items: center;
   margin-top: ${RFValue(90)}px;
@@ -26,16 +25,17 @@ export const Buttons = styled.View`
   width: 105%;
   flex-direction: row;
   justify-content: space-around;
+
+  margin-top: ${RFValue(46)}px;
 `;
 
-export const View = styled.View`
-  flex-direction: row;
-  position: absolute;
-  right: ${RFValue(30)}px;
+export const ButtonRecoveryKey = styled.TouchableOpacity`
+  width: 100%;
+  margin-top: ${RFValue(6)}px;
 `;
 
-export const TextRecoveryKey = styled.Text`
-  margin-top: ${RFValue(60)}px;
-  font-size: ${RFValue(15)}px;
+export const TextRecovery = styled.Text`
+  text-align: right;
+  font-size: ${RFValue(14)}px;
   color: #f7b538;
 `;
