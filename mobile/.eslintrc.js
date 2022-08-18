@@ -1,16 +1,18 @@
 module.exports = {
   env: {
     es2021: true,
-    node: true,
+    node: true
   },
   extends: ['standard'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['@typescript-eslint'],
   rules: {
     semi: [1, 'always'],
-  },
+    'space-before-function-paren': ['error', 'never'],
+    indent: ['error', 2]
+  }
 };

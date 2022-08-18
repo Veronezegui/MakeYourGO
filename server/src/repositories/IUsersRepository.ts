@@ -7,11 +7,16 @@ interface ICreateUserDTO {
   senha: string
 }
 
-interface IUsersRepository {
-  findByEmail(email: string);
-  list(): User[];
-  create({ name, email, senha }: ICreateUserDTO): void
-
+interface ILoginDTO {
+  email: string;
+  senha: string
 }
 
-export { IUsersRepository, ICreateUserDTO }
+interface IUsersRepository {
+  findByEmail(email: string);
+  findBySenha(senha: string);
+  list(): User[];
+  create({ name, email, senha }: ICreateUserDTO): void
+}
+
+export { IUsersRepository, ICreateUserDTO, ILoginDTO }

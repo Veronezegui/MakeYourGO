@@ -8,7 +8,7 @@ class User {
   senha: string
   created_at: Date
 
-  constructor () {
+  constructor() {
     if (!this.id) {
       this.id = uuidV4()
     }
