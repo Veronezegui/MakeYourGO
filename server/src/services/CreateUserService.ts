@@ -8,9 +8,9 @@ interface IRequest {
 }
 
 class CreateUserService {
-  constructor (private usersRepository: IUsersRepository) {}
+  constructor(private usersRepository: IUsersRepository) { }
 
-  execute ({ name, email, senha }: IRequest): void {
+  execute({ name, email, senha }: IRequest): void {
     const userAlreadyExists = this.usersRepository.findByEmail(email)
 
     if (userAlreadyExists) {

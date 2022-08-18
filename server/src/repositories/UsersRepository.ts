@@ -4,11 +4,11 @@ import { ICreateUserDTO } from './IUsersRepository'
 class UserRepository {
   private users: User[]
 
-  constructor () {
+  constructor() {
     this.users = []
   }
 
-  create ({ name, email, senha } : ICreateUserDTO): void {
+  create({ name, email, senha }: ICreateUserDTO): void {
     const user = new User()
 
     Object.assign(user, {
@@ -21,12 +21,17 @@ class UserRepository {
     this.users.push(user)
   }
 
-  list (): User[] {
+  list(): User[] {
     return this.users
   }
 
-  findByEmail (email: string): User {
+  findByEmail(email: string): User {
     const user = this.users.find(user => user.email === email)
+    return user
+  }
+
+  findBySenha(senha: string): User {
+    const user = this.users.find(user => user.senha === senha)
     return user
   }
 }

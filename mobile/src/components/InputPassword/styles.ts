@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-
 import { RFValue } from 'react-native-responsive-fontsize';
 
 export const Container = styled.View`
@@ -7,7 +6,14 @@ export const Container = styled.View`
   margin-bottom: ${RFValue(20)}px;
 `;
 
-export const Entry = styled.TextInput.attrs({
+export const ToggleView = styled.TouchableOpacity`
+  height: ${RFValue(30)}px;
+  position: absolute;
+  right: ${RFValue(20)}px;
+  top: ${RFValue(12)}px;
+`;
+
+export const Input = styled.TextInput.attrs({
   placeholderTextColor: '#000000'
 })`
   width: 100%;

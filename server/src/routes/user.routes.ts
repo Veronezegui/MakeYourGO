@@ -4,6 +4,7 @@ import { Router } from 'express'
 import { CreateUserService } from '../services/CreateUserService'
 
 import { UserRepository } from '../repositories/UsersRepository'
+import { AuthenticateUser } from '../services/AuthenticateUser'
 
 const usersRoutes = Router()
 const userRepository = new UserRepository()
@@ -30,4 +31,18 @@ usersRoutes.get('/', (request, response) => {
 
   return response.json(all)
 })
+
+usersRoutes.post('/login', (request, response) => {
+  const { email, senha } = request.body
+
+  const authenticateUser = new AuthenticateUser(userRepository)
+
+  const result = authenticateUser.execute({
+    email,
+    senha
+  })
+
+  return response.json(result)
+})
+
 export { usersRoutes }

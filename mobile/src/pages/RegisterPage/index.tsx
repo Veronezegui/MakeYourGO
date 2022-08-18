@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+/* eslint-disable space-before-function-paren */
+import React, { useState } from 'react';
 
 import { Container, Form, Photo } from './styles';
 import Makeyourgologo from '../../assets/makeyourgo.svg';
@@ -8,12 +9,14 @@ import { Button } from '../../components/Button';
 import * as Yup from 'yup';
 import { Alert } from 'react-native';
 import { api } from '../../services/api';
-import getValidationErrors from '../../utils/getValidationErrors';
+
+import { useAuth } from '../../contexts/AuthContext';
 
 export function RegisterPage() {
+  const { signIn } = useAuth();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [senha, setSenha] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
   async function handleRegister() {
@@ -23,20 +26,22 @@ export function RegisterPage() {
         email: Yup.string()
           .email('* Digite um e-mail válido')
           .required('* E-mail obrigatório'),
-        password: Yup.string().required('* Senha obrigatório'),
+        senha: Yup.string().required('* Senha obrigatório'),
         confirmPassword: Yup.string().required(
           '* Confirmação de senha obrigatório'
-        ),
+        )
       });
 
-      await schema.validate({ name, email, password, confirmPassword });
+      await schema.validate({ name, email, senha, confirmPassword });
 
-      if (password === confirmPassword) {
-        api.post('/', {
+      if (senha === confirmPassword) {
+        api.post('/users', {
           name,
           email,
-          password,
+          senha
         });
+
+        signIn(email, senha);
       } else {
         Alert.alert('Falha no post');
       }
@@ -52,7 +57,7 @@ export function RegisterPage() {
         <Photo name="md-person-add-outline" size={120} color="white" />
         <Input title="Nome" onChangeText={setName} value={name} />
         <Input title="Email" onChangeText={setEmail} value={email} />
-        <Input title="Senha" onChangeText={setPassword} value={password} />
+        <Input title="Senha" onChangeText={setSenha} value={senha} />
         <Input
           title="Confirmar Senha"
           onChangeText={setConfirmPassword}

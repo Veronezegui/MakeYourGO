@@ -2,17 +2,22 @@ import { User } from '../model/User'
 import { ICreateUserDTO, IUsersRepository } from './IUsersRepository'
 
 class PostgresUsersRepository implements IUsersRepository {
-  findByEmail (email: string) {
+  findByEmail(email: string) {
     console.log(email)
     return null
   }
 
-  list (): User[] {
+  list(): User[] {
     return null
   }
 
-  create ({ name, email, senha }: ICreateUserDTO): void {
+  create({ name, email, senha }: ICreateUserDTO): void {
     console.log(name, email, senha)
+  }
+
+  findBySenha(senha: string) {
+    console.log(senha)
+    return null
   }
 }
 
