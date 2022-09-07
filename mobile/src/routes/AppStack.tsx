@@ -13,8 +13,8 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export function AppStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name='SignInPage' component={SignIn} />
-      <Stack.Screen name='RegisterPage' component={RegisterPage} />
+      <Stack.Screen name='SignInPage' component={SignIn} options={{ headerShown: false }} />
+      <Stack.Screen name='RegisterPage' component={RegisterPage} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }

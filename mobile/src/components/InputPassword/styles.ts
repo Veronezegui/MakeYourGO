@@ -20,6 +20,7 @@ export const Input = styled.TextInput.attrs({
   color: #001433;
   font-size: ${RFValue(20)}px;
   border: 1px solid black;
+  border-radius: ${RFValue(6)}px;
   background-color: white;
   height: ${RFValue(45)}px;
   padding-left: ${RFValue(10)}px;

@@ -10,14 +10,20 @@ interface IRequest {
 class CreateUserService {
   constructor(private usersRepository: IUsersRepository) { }
 
-  execute({ name, email, senha }: IRequest): void {
-    const userAlreadyExists = this.usersRepository.findByEmail(email)
+  async execute({ name, email, senha }: IRequest) {
+    const userAlreadyExists = await this.usersRepository.findByEmail(email)
 
     if (userAlreadyExists) {
       throw new Error('Usuário já existe!')
-    }
+    } // if (email || name || senha === ' ') {
 
+    // throw new Error('Preencha as informações')
+    // }
     this.usersRepository.create({ name, email, senha })
+
+    // if (name || email || senha === '') {
+    //   throw new Error('Favor preencher os campos')
+    // }
   }
 }
 

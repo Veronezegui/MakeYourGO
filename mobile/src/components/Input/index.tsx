@@ -21,6 +21,7 @@ export function Input({ title, ...rest }: InputProps) {
   return (
     <Container>
       <Entry
+        required
         placeholder={title}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}

@@ -12,10 +12,12 @@ export const Entry = styled.TextInput.attrs({
 })`
   width: 100%;
   color: #001433;
-  font-size: ${RFValue(20)}px;
+  font-size: ${RFValue(16)}px;
   border: 1px solid black;
+  border-radius: ${RFValue(6)}px;
   background-color: white;
   height: ${RFValue(45)}px;
   padding-left: ${RFValue(10)}px;
-
+  
+  font-family: ${({ theme }) => theme.fonts.regular}
 `;

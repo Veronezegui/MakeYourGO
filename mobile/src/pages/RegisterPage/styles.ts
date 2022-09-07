@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { Ionicons } from '@expo/vector-icons';
 
 export const Container = styled.View`
   width: 100%;
@@ -21,14 +20,11 @@ export const Form = styled.View`
   padding: ${RFValue(0)}px ${RFValue(20)}px ${RFValue(0)}px ${RFValue(20)}px;
   justify-content: center;
   align-items: center;
+  margin-top: ${RFValue(40)}px;
 `;
 
 export const Title = styled.Text`
-  color: #000000;
+  color: #FFFFFF;
   font-size: ${RFValue(40)}px;
-`;
-
-export const Photo = styled(Ionicons)`
-  margin-bottom: ${RFValue(40)}px;
-  margin-top: ${RFValue(40)}px;
+  margin-top: ${RFValue(80)}px;
 `;
