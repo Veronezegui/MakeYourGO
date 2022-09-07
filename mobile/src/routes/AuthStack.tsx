@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 export function AuthStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name='MapPage' component={MapPage} />
+      <Stack.Screen name='MapPage' component={MapPage} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }

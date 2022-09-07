@@ -1,5 +1,5 @@
+import { BottomSheetView } from '@gorhom/bottom-sheet';
 import styled from 'styled-components/native';
-
 import { RFValue } from 'react-native-responsive-fontsize';
 
 export const Container = styled.View`
@@ -7,7 +7,16 @@ export const Container = styled.View`
     flex: 1;
 `;
 
-export const Map = styled.View`
+export const Bottom = styled(BottomSheetView)`
+    justify-content: space-around;
     width: 100%;
-    height: ${RFValue(300)}px;
+    height: 100%;
+    background-color: ${({ theme }) => theme.colors.background};
+`;
+
+export const PlaceView = styled.View`
+  width: 100%;
+  padding: ${RFValue(20)}px;
+  position: absolute;
+  top: ${RFValue(60)}px;
 `;

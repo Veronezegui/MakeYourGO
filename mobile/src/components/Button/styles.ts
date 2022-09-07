@@ -12,10 +12,11 @@ export const Touch = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   padding: ${RFValue(8)}px;
+  border-radius: ${RFValue(6)}px;
 `;
 
 export const Title = styled.Text`
   color: #001433;
   font-weight: bold;
-  font-size: ${RFValue(20)}px;
+  font-size: ${RFValue(16)}px;
 `;

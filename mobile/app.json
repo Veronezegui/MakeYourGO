@@ -2,7 +2,19 @@
   "expo": {
     "name": "mobile",
     "slug": "mobile",
+    "ios": {
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "location",
+          "fetch"
+        ]
+      }
+    },
     "version": "1.0.0",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover"
+    },
     "assetBundlePatterns": [
       "**/*"
     ]

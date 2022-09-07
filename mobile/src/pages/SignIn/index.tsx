@@ -33,7 +33,7 @@ export function SignIn() {
       <Makeyourgologo />
       <Form>
         <Input title="Email" value={email} onChangeText={setEmail} />
-        <Input title="Senha" value={senha} onChangeText={setSenha} />
+        <Input title="Senha" value={senha} onChangeText={setSenha} secureTextEntry={true} />
         <Buttons>
           <Button title="Entrar" onPress={() => signIn(email, senha)} />
           <Button
@@ -45,7 +45,7 @@ export function SignIn() {
         </Buttons>
       </Form>
 
-      <Link title='Esqueci minha senha' />
+      <Link title='Esqueci minha senha' navegator={() => navigation.navigate('ForgotPassword')} />
     </Container>
   );
 }

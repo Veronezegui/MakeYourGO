@@ -14,4 +14,5 @@ export const Text = styled.Text`
   font-size: ${RFValue(15)}px;
   color: #f7b538;
   text-align: center;
+  font-family: ${({ theme }) => theme.fonts.semiBold}
 `;

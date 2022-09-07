@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-return */
 /* eslint-disable indent */
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { authService } from '../services/authService';
 import { Alert } from 'react-native';
 
@@ -25,20 +26,32 @@ export const AuthContext = createContext<AuthContextData>(
 export const AuthContextProvider: React.FC = ({ children }) => {
   const [authData, setAuth] = useState<AuthData>();
 
+  useEffect(() => {
+    loadFromStorage();
+  }, []);
+
+  async function loadFromStorage() {
+    const auth = await AsyncStorage.getItem('@AuthData');
+    if (auth) {
+      setAuth(JSON.parse(auth) as AuthData);
+    }
+  }
+
   async function signIn(email: string, senha: string): Promise<AuthData> {
     try {
       const auth = await authService.signIn(email, senha);
 
       setAuth(auth);
-
-      return auth;
+      AsyncStorage.setItem('@AuthData', JSON.stringify(auth));
     } catch (error) {
-      Alert.alert(error.message, 'Credenciais erradas');
+      Alert.alert('Credenciais erradas');
     }
   }
 
   async function signOut(): Promise<void> {
     setAuth(undefined);
+    AsyncStorage.removeItem('@AuthData');
+
     return;
   }
 
