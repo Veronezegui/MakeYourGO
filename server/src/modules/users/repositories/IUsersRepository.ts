@@ -1,15 +1,26 @@
 /* eslint-disable no-unused-vars */
-import { User } from '../model/User'
+import { User } from "../model/User";
 
 interface ICreateUserDTO {
   name: string;
   email: string;
-  senha: string
+  senha: string;
+}
+
+interface IUpdateTokenUserDTO {
+  email: string;
+  passwordResetToken: number;
+  passwordResetExpires: Date;
+}
+
+interface IUpdatePasswordUserDTO {
+  email: string;
+  senha: string;
 }
 
 interface ILoginDTO {
   email: string;
-  senha: string
+  senha: string;
 }
 
 interface IUsersRepository {
@@ -17,6 +28,21 @@ interface IUsersRepository {
   findBySenha(senha: string);
   list(): User[];
   create({ name, email, senha }: ICreateUserDTO): void;
+  update({
+    passwordResetToken,
+    passwordResetExpires,
+  }: IUpdateTokenUserDTO): void;
 }
 
-export { IUsersRepository, ICreateUserDTO, ILoginDTO }
+interface IUserUpdate {
+  updatePassword({ email, senha }: IUpdatePasswordUserDTO): void;
+}
+
+export {
+  IUsersRepository,
+  IUserUpdate,
+  ICreateUserDTO,
+  ILoginDTO,
+  IUpdateTokenUserDTO,
+  IUpdatePasswordUserDTO,
+};
