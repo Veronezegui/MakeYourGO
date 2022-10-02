@@ -55,12 +55,12 @@ class UpdateUserForgetPasswordService {
     ejs.renderFile(
       __dirname + "/forgot_password.ejs",
       { codigo: passwordResetToken },
-      function (err, data) {
+      await function (err, data) {
         if (err) {
           console.log(err);
         } else {
           mailer.sendMail({
-            from: "contato@makeyourgo.com.br",
+            from: "contato@makeyourgo.tk",
             to: email,
             subject: "MakeYourGo: Recuperação de senha",
             html: data,
