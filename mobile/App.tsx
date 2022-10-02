@@ -1,27 +1,32 @@
 /* eslint-disable camelcase */
 /* eslint-disable space-before-function-paren */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback } from "react";
 
-import { AuthContextProvider } from './src/contexts/AuthContext';
+import { AuthContextProvider } from "./src/contexts/AuthContext";
 
-import { useFonts, Montserrat_300Light, Montserrat_600SemiBold, Montserrat_400Regular } from '@expo-google-fonts/montserrat';
+import {
+  useFonts,
+  Montserrat_300Light,
+  Montserrat_600SemiBold,
+  Montserrat_400Regular,
+} from "@expo-google-fonts/montserrat";
 
-import { ThemeProvider } from 'styled-components/native';
+import { ThemeProvider } from "styled-components/native";
 
-import theme from './src/global/styles/theme';
+import theme from "./src/global/styles/theme";
 
-import * as SplashScreen from 'expo-splash-screen';
+import * as SplashScreen from "expo-splash-screen";
 
-import { Routes } from './src/routes/Routes';
-import { KeyboardAvoidingView } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Routes } from "./src/routes/Routes";
+import { KeyboardAvoidingView } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
     Montserrat_300Light,
     Montserrat_600SemiBold,
-    Montserrat_400Regular
+    Montserrat_400Regular,
   });
 
   useEffect(() => {
@@ -46,7 +51,6 @@ export default function App() {
   }
 
   return (
-
     <ThemeProvider theme={theme}>
       <KeyboardAvoidingView onLayout={onLayoutRootView} />
       <GestureHandlerRootView style={{ flex: 1 }}>
@@ -54,7 +58,7 @@ export default function App() {
           <Routes />
         </AuthContextProvider>
       </GestureHandlerRootView>
-    </ThemeProvider >
-
+    </ThemeProvider>
   );
 }
+
