@@ -1,6 +1,6 @@
 {
-  "host": "smtp.mailtrap.io",
-  "port": 2525,
-  "user": "1ffd97d1c4b835",
-  "pass": "84835a039e737b"
+  "host": "smtp.umbler.com",
+  "port": 587,
+  "user": "contato@makeyourgo.tk",
+  "pass": "*makeyourgo"
 }
