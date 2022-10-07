@@ -46,7 +46,6 @@ export default function App() {
   }
 
   return (
-
     <ThemeProvider theme={theme}>
       <KeyboardAvoidingView onLayout={onLayoutRootView} />
       <GestureHandlerRootView style={{ flex: 1 }}>

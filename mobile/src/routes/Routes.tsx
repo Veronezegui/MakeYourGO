@@ -7,6 +7,7 @@ import { AppStack } from './AppStack';
 import { useAuth } from '../contexts/AuthContext';
 export function Routes() {
   const { authData } = useAuth();
+
   return (
     <NavigationContainer>
       {authData ? <AuthStack /> : <AppStack />}

@@ -45,7 +45,10 @@ export function SignIn() {
         </Buttons>
       </Form>
 
-      <Link title='Esqueci minha senha' navegator={() => navigation.navigate('ForgotPassword')} />
+      <Link
+        textColor='yellow'
+        title='Esqueci minha senha'
+        navegator={() => navigation.navigate('ForgotPassword')} />
     </Container>
   );
 }

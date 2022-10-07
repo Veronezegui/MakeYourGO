@@ -27,6 +27,7 @@ class AuthenticateUser {
     })
 
     return {
+      user,
       token
     }
   }
