@@ -5,8 +5,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ForgotPasswordFirstStep } from "../pages/ForgotPasswordPage/ForgotPasswordFirstStep";
 import { ForgotPasswordSecondStep } from "../pages/ForgotPasswordPage/ForgotPasswordSecondStep";
 import { Confirmation } from "../pages/ConfirmationPage";
+import { Splash } from "../pages/Splash";
 
 export type RootStackParamList = {
+  Splash: undefined;
   SignInPage: undefined;
   RegisterPage: undefined;
   ForgotPasswordFirstStep: undefined;
@@ -18,7 +20,12 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export function AppStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="Splash">
+      <Stack.Screen
+        name="Splash"
+        component={Splash}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="SignInPage"
         component={SignIn}
