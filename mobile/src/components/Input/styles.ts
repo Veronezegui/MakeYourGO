@@ -1,6 +1,10 @@
-import styled from 'styled-components/native';
+import styled, { css } from "styled-components/native";
 
-import { RFValue } from 'react-native-responsive-fontsize';
+import { RFValue } from "react-native-responsive-fontsize";
+
+interface Props {
+  error: boolean;
+}
 
 export const Container = styled.View`
   width: 100%;
@@ -8,8 +12,8 @@ export const Container = styled.View`
 `;
 
 export const Entry = styled.TextInput.attrs({
-  placeholderTextColor: '#000000'
-})`
+  placeholderTextColor: "#000000",
+})<Props>`
   width: 100%;
   color: #001433;
   font-size: ${RFValue(16)}px;
@@ -18,6 +22,13 @@ export const Entry = styled.TextInput.attrs({
   background-color: white;
   height: ${RFValue(45)}px;
   padding-left: ${RFValue(10)}px;
-  
-  font-family: ${({ theme }) => theme.fonts.regular}
+
+  font-family: ${({ theme }) => theme.fonts.regular};
+
+  ${({ error }) =>
+    error &&
+    css`
+      border-width: 3px;
+      border-color: #a52a2a;
+    `}
 `;

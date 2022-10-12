@@ -10,6 +10,7 @@ import { api } from "../../../services/api";
 import * as Yup from "yup";
 
 import { Alert, StatusBar } from "react-native";
+import { InputPassword } from "../../../components/InputPassword";
 
 interface Params {
   data: { email: string };
@@ -102,8 +103,12 @@ export function ForgotPasswordSecondStep() {
         </Subtitle>
       </TitleDiv>
       <Form>
-        <Input title="Token" onChangeText={setToken} value={token} />
-        <Input title="Nova senha" onChangeText={setPassword} value={password} />
+        <InputPassword title="Token" onChangeText={setToken} value={token} />
+        <InputPassword
+          title="Nova senha"
+          onChangeText={setPassword}
+          value={password}
+        />
         <Input
           title="Confirme a senha"
           onChangeText={setPasswordConfirm}
