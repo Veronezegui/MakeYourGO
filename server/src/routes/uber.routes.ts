@@ -1,4 +1,4 @@
-/* eslint-disable space-before-function-paren */
+/* eslint-disable space-before-function-paren
 import { Router } from 'express'
 
 const Uber = require('node-uber')
@@ -35,3 +35,4 @@ uberRoutes.get('/callback', function (request, response) {
 })
 
 export { uberRoutes }
+*/

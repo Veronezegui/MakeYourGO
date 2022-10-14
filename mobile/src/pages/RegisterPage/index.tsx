@@ -1,20 +1,20 @@
 /* eslint-disable space-before-function-paren */
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Container, Form } from "./styles";
-import Makeyourgologo from "../../assets/makeyourgo.svg";
-import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
+import { Container, Form } from './styles';
+import Makeyourgologo from '../../assets/makeyourgo.svg';
+import { Input } from '../../components/Input';
+import { Button } from '../../components/Button';
 
-import * as Yup from "yup";
-import { api } from "../../services/api";
+import * as Yup from 'yup';
+import { api } from '../../services/api';
 
-import { useAuth } from "../../contexts/AuthContext";
-import { Alert, StatusBar } from "react-native";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { InputForm } from "../../components/Input/InputForm";
-import { InputFormPassword } from "../../components/InputPassword/InputFormPassword";
+import { useAuth } from '../../contexts/AuthContext';
+import { Alert, StatusBar } from 'react-native';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { InputForm } from '../../components/Input/InputForm';
+import { InputFormPassword } from '../../components/InputPassword/InputFormPassword';
 
 interface FormData {
   nome: string;
@@ -25,7 +25,7 @@ interface FormData {
 const schema = Yup.object().shape({
   email: Yup.string().required(),
   senha: Yup.string().required(),
-  senhaConfirmation: Yup.string().oneOf([Yup.ref("senha"), null]),
+  senhaConfirmation: Yup.string().oneOf([Yup.ref('senha'), null])
 });
 
 export function RegisterPage() {
@@ -34,25 +34,25 @@ export function RegisterPage() {
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema)
   });
 
   async function handleRegister(form: FormData) {
     const data = {
       nome: form.nome,
       email: form.email,
-      senha: form.senha,
+      senha: form.senha
     };
 
     try {
-      await api.post("/users", data).then((response) => {
-        signIn(form.nome, form.senha);
+      await api.post('/users', data).then((response) => {
+        signIn(form.email, form.senha);
       });
     } catch (err) {
       console.log(err);
-      Alert.alert("Opa", "Parece que esse email ja está sendo utilizado.");
+      Alert.alert('Opa', 'Parece que esse email ja está sendo utilizado.');
     }
   }
 
@@ -72,7 +72,7 @@ export function RegisterPage() {
           title="Nome"
           autoCapitalize="sentences"
           autoCorrect={false}
-          error={errors.email ? true : false}
+          error={!!errors.email}
         />
         <InputForm
           control={control}
@@ -80,7 +80,7 @@ export function RegisterPage() {
           title="Email"
           autoCapitalize="sentences"
           autoCorrect={false}
-          error={errors.email ? true : false}
+          error={!!errors.email}
         />
         <InputFormPassword
           control={control}
@@ -88,7 +88,7 @@ export function RegisterPage() {
           title="Senha"
           autoCapitalize="sentences"
           autoCorrect={false}
-          error={errors.senha || errors.senhaConfirmation ? true : false}
+          error={!!(errors.senha || errors.senhaConfirmation)}
         />
         <InputFormPassword
           control={control}
@@ -96,7 +96,7 @@ export function RegisterPage() {
           title="Confirme a senha"
           autoCapitalize="sentences"
           autoCorrect={false}
-          error={errors.senhaConfirmation ? true : false}
+          error={!!errors.senhaConfirmation}
         />
         <Button title="Cadastrar" onPress={handleSubmit(handleRegister)} />
       </Form>
