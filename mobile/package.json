@@ -15,6 +15,7 @@
     "@react-native-async-storage/async-storage": "^1.17.10",
     "@react-native-community/geolocation": "^2.1.0",
     "@react-navigation/bottom-tabs": "^6.3.2",
+    "@react-navigation/drawer": "^6.5.0",
     "@react-navigation/native": "^6.0.11",
     "@react-navigation/native-stack": "^6.7.0",
     "@types/styled-components": "^5.1.25",
