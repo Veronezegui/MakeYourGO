@@ -28,8 +28,13 @@ class AuthenticateUser {
 
     return {
       user,
+<<<<<<< HEAD
       token,
     };
+=======
+      token
+    }
+>>>>>>> master
   }
 }
 

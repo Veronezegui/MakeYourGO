@@ -5,15 +5,21 @@ import { Container, Text, Touch } from './styles';
 
 interface LinkProps extends TouchableOpacityProps {
   title: string;
-  navegator?: () => void
+  navegator?: () => void;
+  textColor: string
 }
 
-export function Link({ title, navegator, ...rest }: LinkProps) {
+export function Link({ textColor, title, navegator, ...rest }: LinkProps) {
   return (
     <Container>
       <Touch onPress={() => navegator && navegator()} {...rest} >
-        <Text>{title}</Text>
+        <Text
+          {...rest}
+          style={{
+            color: textColor
+          }}
+        >{title}</Text>
       </Touch>
-    </Container>
+    </Container >
   );
 }

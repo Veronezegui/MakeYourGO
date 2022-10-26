@@ -1,25 +1,25 @@
 /* eslint-disable space-before-function-paren */
 /* eslint-disable indent */
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation } from '@react-navigation/native';
 
-import * as Yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
 
-import { Container, Form, Buttons } from "./styles";
-import Makeyourgologo from "../../assets/makeyourgo.svg";
+import { Container, Form, Buttons } from './styles';
+import Makeyourgologo from '../../assets/makeyourgo.svg';
 
-import { Button } from "../../components/Button";
-import { Link } from "../../components/Link";
+import { Button } from '../../components/Button';
+import { Link } from '../../components/Link';
 
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../routes/AppStack";
-import { useAuth } from "../../contexts/AuthContext";
-import { Alert, StatusBar } from "react-native";
-import { InputForm } from "../../components/Input/InputForm";
-import { InputFormPassword } from "../../components/InputPassword/InputFormPassword";
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../routes/AppStack';
+import { useAuth } from '../../contexts/AuthContext';
+import { Alert, StatusBar } from 'react-native';
+import { InputForm } from '../../components/Input/InputForm';
+import { InputFormPassword } from '../../components/InputPassword/InputFormPassword';
 
 interface FormData {
   email: string;
@@ -28,13 +28,13 @@ interface FormData {
 
 type RegisterPageProp = NativeStackNavigationProp<
   RootStackParamList,
-  "RegisterPage",
-  "ForgotPasswordFirstStep"
+  'RegisterPage',
+  'ForgotPasswordFirstStep'
 >;
 
 const schema = Yup.object().shape({
   email: Yup.string().required(),
-  senha: Yup.string().required(),
+  senha: Yup.string().required()
 });
 
 export function SignIn() {
@@ -43,9 +43,9 @@ export function SignIn() {
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema)
   });
 
   const navigation = useNavigation<RegisterPageProp>();
@@ -53,13 +53,13 @@ export function SignIn() {
   async function handleRegister(form: FormData) {
     const data = {
       email: form.email,
-      senha: form.senha,
+      senha: form.senha
     };
 
     try {
       signIn(data.email, data.senha);
     } catch (error) {
-      Alert.alert("Opa", "Login indisponivel no momento !");
+      Alert.alert('Opa', 'Login indisponivel no momento !');
     }
   }
 
@@ -78,7 +78,7 @@ export function SignIn() {
           title="Email"
           autoCapitalize="sentences"
           autoCorrect={false}
-          error={errors.email ? true : false}
+          error={!!errors.email}
         />
         <InputFormPassword
           control={control}
@@ -86,21 +86,22 @@ export function SignIn() {
           title="Senha"
           autoCapitalize="sentences"
           autoCorrect={false}
-          error={errors.senha ? true : false}
+          error={!!errors.senha}
         />
 
         <Buttons>
           <Button title="Entrar" onPress={handleSubmit(handleRegister)} />
           <Button
             title="Cadastrar"
-            navegator={() => navigation.navigate("RegisterPage")}
+            navegator={() => navigation.navigate('RegisterPage')}
           />
         </Buttons>
       </Form>
 
       <Link
+        textColor='#f7b538'
         title="Esqueci minha senha"
-        navegator={() => navigation.navigate("ForgotPasswordFirstStep")}
+        navegator={() => navigation.navigate('ForgotPasswordFirstStep')}
       />
     </Container>
   );

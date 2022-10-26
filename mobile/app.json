@@ -2,6 +2,7 @@
   "expo": {
     "name": "mobile",
     "slug": "mobile",
+    "scheme": "mobile",
     "ios": {
       "infoPlist": {
         "UIBackgroundModes": [

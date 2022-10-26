@@ -1,6 +1,6 @@
 import { createHash } from 'crypto'
 
-export function criaHash (senha: string) {
+export function criaHash(senha: string) {
   return createHash('sha256').update(senha).digest('hex')
 }
 
