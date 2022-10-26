@@ -1,11 +1,11 @@
-import React from "react";
-import { RegisterPage } from "../pages/RegisterPage";
-import { SignIn } from "../pages/SignIn";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { ForgotPasswordFirstStep } from "../pages/ForgotPasswordPage/ForgotPasswordFirstStep";
-import { ForgotPasswordSecondStep } from "../pages/ForgotPasswordPage/ForgotPasswordSecondStep";
-import { Confirmation } from "../pages/ConfirmationPage";
-import { Splash } from "../pages/Splash";
+import React from 'react';
+import { RegisterPage } from '../pages/RegisterPage';
+import { SignIn } from '../pages/SignIn';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ForgotPasswordFirstStep } from '../pages/ForgotPasswordPage/ForgotPasswordFirstStep';
+import { ForgotPasswordSecondStep } from '../pages/ForgotPasswordPage/ForgotPasswordSecondStep';
+import { Confirmation } from '../pages/ConfirmationPage';
+import { Splash } from '../pages/Splash';
 
 export type RootStackParamList = {
   Splash: undefined;
@@ -54,4 +54,3 @@ export function AppStack() {
     </Stack.Navigator>
   );
 }
->>>>>>> master

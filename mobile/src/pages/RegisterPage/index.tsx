@@ -17,7 +17,7 @@ import { InputForm } from '../../components/Input/InputForm';
 import { InputFormPassword } from '../../components/InputPassword/InputFormPassword';
 
 interface FormData {
-  nome: string;
+  name: string;
   email: string;
   senha: string;
 }
@@ -41,7 +41,7 @@ export function RegisterPage() {
 
   async function handleRegister(form: FormData) {
     const data = {
-      nome: form.nome,
+      name: form.name,
       email: form.email,
       senha: form.senha
     };
@@ -68,7 +68,7 @@ export function RegisterPage() {
       <Form>
         <InputForm
           control={control}
-          name="nome"
+          name="name"
           title="Nome"
           autoCapitalize="sentences"
           autoCorrect={false}

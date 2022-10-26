@@ -99,7 +99,7 @@ export function SignIn() {
       </Form>
 
       <Link
-        textColor='yellow'
+        textColor='#f7b538'
         title="Esqueci minha senha"
         navegator={() => navigation.navigate('ForgotPasswordFirstStep')}
       />

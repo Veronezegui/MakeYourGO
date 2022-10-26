@@ -1,20 +1,16 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable keyword-spacing */
 /* eslint-disable space-before-function-paren */
 /* eslint-disable indent */
 import React, { useEffect, useRef, useState } from 'react';
 
-import { Button } from '../../components/Button';
 import { useAuth } from '../../contexts/AuthContext';
 import { Modal } from '../../components/Modal';
-import { Input } from '../../components/Input';
 
 import * as Location from 'expo-location';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapViewsDirections from 'react-native-maps-directions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import Geocoder from 'react-native-geocoding';
-import axios from 'axios';
-import Geolocation from 'react-native-geolocation-service';
 
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootAuthStackParamList } from '../../routes/AuthStack';
@@ -25,15 +21,15 @@ import BottomSheet from '@gorhom/bottom-sheet';
 import { RidesCard } from '../../components/RidesCard';
 // import { calculateEstimates } from '../../services/uberEstimates';
 
-import * as AuthSession from 'expo-auth-session';
-import * as Linking from 'expo-linking';
-import * as WebBrowser from 'expo-web-browser';
-import { FlatList } from 'react-native';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { add } from 'react-native-reanimated';
-import { googleGeocodeAsync } from 'expo-location/build/LocationGoogleGeocoding';
+// import * as AuthSession from 'expo-auth-session';
+// import * as Linking from 'expo-linking';
+// import * as WebBrowser from 'expo-web-browser';
 
-WebBrowser.maybeCompleteAuthSession();
+import { useNavigation } from '@react-navigation/native';
+
+// import { googleGeocodeAsync } from 'expo-location/build/LocationGoogleGeocoding';
+
+// WebBrowser.maybeCompleteAuthSession();
 
 interface OptionsProps {
   title: string,
@@ -104,9 +100,9 @@ export function MapPage() {
   const [MylongitudeDelta, setMyLongitudeDelta] = useState(0.0134);
 
   const [distance, setDistance] = useState(0);
-  const [uberXPrice, setUberXPrice] = useState(0);
+  // const [uberXPrice, setUberXPrice] = useState(0);
 
-  const [nineNinePrice, setNineNinePrice] = useState(0);
+  // const [nineNinePrice, setNineNinePrice] = useState(0);
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -561,8 +557,6 @@ export function MapPage() {
                 setMyLatitudeDelta(0.1243);
                 setMyLongitudeDelta(0.1234);
                 setDistance(result.distance);
-                setUberXPrice(result.distance * 1.4);
-                setNineNinePrice(result.distance * 1.17);
                 setOptions(
                   [{
                     title: 'UberX',
@@ -671,7 +665,10 @@ export function MapPage() {
 
       <Modal
         visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
+        onRequestClose={() => {
+          signOut();
+          setModalVisible(false);
+        }}
         onConfirm={() => {
           navigation.navigate('WaitingPage');
           setModalVisible(false);
@@ -735,7 +732,6 @@ export function MapPage() {
             {selectedOption?.priceEstimate}
           </ModalPrice>
         </ModalDetails>
-
       </Modal>
     </>
   );
