@@ -12,25 +12,14 @@ import * as Location from 'expo-location';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapViewsDirections from 'react-native-maps-directions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootAuthStackParamList } from '../../routes/AuthStack';
 import { Feather } from '@expo/vector-icons';
 import { Container, PlaceView, Options, Bottom, Title, CardsOptions, OptionsList, ModalText, ModalDetails, ModalPrice, ModalApp, DrawerOpenButton } from './styles';
 import BottomSheet from '@gorhom/bottom-sheet';
-
 import { RidesCard } from '../../components/RidesCard';
-// import { calculateEstimates } from '../../services/uberEstimates';
-
-// import * as AuthSession from 'expo-auth-session';
-// import * as Linking from 'expo-linking';
-// import * as WebBrowser from 'expo-web-browser';
-
 import { useNavigation } from '@react-navigation/native';
-
-// import { googleGeocodeAsync } from 'expo-location/build/LocationGoogleGeocoding';
-
-// WebBrowser.maybeCompleteAuthSession();
+import { StatusBar } from 'react-native';
 
 interface OptionsProps {
   title: string,
@@ -55,27 +44,6 @@ interface AddressProps {
 type MapPageProps = NativeStackNavigationProp<RootAuthStackParamList, 'WaitingPage'>;
 
 export function MapPage() {
-  /*
-   const grantType = 'client_credentials';
-   const scopes = 'profile';
-   const accessToken = 'IA.VUNmGAAAAAAAEgASAAAABwAIAAwAAAAAAAAAEgAAAAAAAAGgAAAAFAAAAAAADgAQAAQAAAAIAAwAAAAOAAAAdAAAABwAAAAEAAAAEAAAADezALmQMINlbkhqdMor-cVOAAAA5NuiRSkndWbOM3ObH5YkoiIYy9LExbj7v1HJ5HVooxMzt_Jlpm-MtvdQMwUXDhPa7-c9vU4gpsV4mlKjmDVRVnD_92rz5MI85hXrTX8qAAAMAAAAoTow6Wx0MXOlQhZ2JAAAAGIwZDg1ODAzLTM4YTAtNDJiMy04MDZlLTdhNGNmOGUxOTZlZQ';
-   const clientId = 'agBBuTEc_jVekcVWgfCE5Q9yT04Oo15Y';
-   const clientSecret = 'Onf2wpz3Tg8eQoyQSuUCoIaouO6AEvJd2X_igqaW';
-   const redirectUrl = 'exp://10.0.0.143:19000';
-
-   const discovery = {
-     authorizationEndpoint: 'https://login.uber.com/oauth/v2/authorize',
-     tokenEndpoint: 'https://login.uber.com/oauth/v2/token'
-   };
-
-   const [request, response, promptAsync] = AuthSession.useAuthRequest(
-     {
-       clientId: 'agBBuTEc_jVekcVWgfCE5Q9yT04Oo15Y',
-       redirectUri: 'https://auth.expo.io/@pexe134/mobile'
-     },
-     discovery
-   );
-     */
   const [options, setOptions] = useState<OptionsProps[]>([]);
   const [selectedOption, setSelectedOption] = useState<OptionsProps>();
 
@@ -101,9 +69,6 @@ export function MapPage() {
   const [MylongitudeDelta, setMyLongitudeDelta] = useState(0.0134);
 
   const [distance, setDistance] = useState(0);
-  // const [uberXPrice, setUberXPrice] = useState(0);
-
-  // const [nineNinePrice, setNineNinePrice] = useState(0);
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -471,11 +436,6 @@ export function MapPage() {
         longitude: location.coords.longitude
       });
 
-      // const reverseDestinyGeolocation = await Location.reverseGeocodeAsync({
-      //  latitude: destinationLatitude,
-      //  longitude: destinationLongitude
-      // });
-
       setAddressOrigin(`${reverseOriginGeolocation.map(item => item.street)}, ${reverseOriginGeolocation.map(item => item.district)} - ${reverseOriginGeolocation.map(item => item.subregion)}`);
 
       console.log(addressOrigin);
@@ -483,32 +443,15 @@ export function MapPage() {
       setOriginLatitude(location.coords.latitude);
       setOriginLongitude(location.coords.longitude);
     })();
-
-    /*
-    (async () => {
-      try {
-        if (response?.type === 'success') {
-          const { code } = response.params;
-          console.log({ code });
-          const token = await axios.post('https://login.uber.com/oauth/v2/token', {
-            params: {
-              grantType,
-              clientId,
-              clientSecret,
-              scope: 'profile'
-            }
-          });
-          console.log(token);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-    */
   }, [addressOrigin, addressDestiny]);
   return (
     <>
       <Container>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
         <MapView
           customMapStyle={mapStyle}
           provider={PROVIDER_GOOGLE}
@@ -617,7 +560,7 @@ export function MapPage() {
         </PlaceView>
 
         <DrawerOpenButton onPress={() => navigation.toggleDrawer()}>
-          <Feather name="menu" size={25} color="#262626" />
+          <Feather name="menu" size={30} color="#FFFFFFFF" />
         </DrawerOpenButton>
 
         <BottomSheet
@@ -651,7 +594,6 @@ export function MapPage() {
                         onPress={() => {
                           reverseDestinationGeolocation();
                           setSelectedOption(item);
-                          console.log(selectedOption);
                           setModalVisible(true);
                         }
 
@@ -671,7 +613,6 @@ export function MapPage() {
       <Modal
         visible={modalVisible}
         onRequestClose={() => {
-          signOut();
           setModalVisible(false);
         }}
         onConfirm={() => {

@@ -6,7 +6,7 @@ import LottieView from 'lottie-react-native';
 
 import carIsometric from '../../assets/carIsometric.json';
 
-import { Dimensions } from 'react-native';
+import { Dimensions, StatusBar } from 'react-native';
 
 import { Button } from '../../components/Button';
 
@@ -17,6 +17,11 @@ export function WaitingPage() {
 
   return (
     <Container>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
       <LottieView
         source={carIsometric}
         style={{

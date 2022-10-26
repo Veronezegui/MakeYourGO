@@ -1,10 +1,10 @@
 /* eslint-disable no-useless-return */
 /* eslint-disable indent */
-import React, { createContext, useContext, useEffect, useState } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { authService } from "../services/authService";
-import { Alert } from "react-native";
-import { api } from "../services/api";
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { authService } from '../services/authService';
+import { Alert } from 'react-native';
+import { api } from '../services/api';
 
 export interface AuthData {
   id: string;
@@ -32,7 +32,7 @@ export const AuthContextProvider: React.FC = ({ children }) => {
   }, []);
 
   async function loadFromStorage() {
-    const auth = await AsyncStorage.getItem("@AuthData");
+    const auth = await AsyncStorage.getItem('@AuthData');
     if (auth) {
       setAuth(JSON.parse(auth) as AuthData);
     }
@@ -40,9 +40,9 @@ export const AuthContextProvider: React.FC = ({ children }) => {
 
   async function signIn(email: string, senha: string): Promise<AuthData> {
     try {
-      const response = await api.post("/users/login", {
+      const response = await api.post('/users/login', {
         email,
-        senha,
+        senha
       });
 
       const { token, user } = response.data;
@@ -52,15 +52,15 @@ export const AuthContextProvider: React.FC = ({ children }) => {
         setAuth(user);
       }
 
-      AsyncStorage.setItem("@AuthData", JSON.stringify(user));
+      AsyncStorage.setItem('@AuthData', JSON.stringify(user));
     } catch (error) {
-      Alert.alert("Credenciais erradas");
+      Alert.alert('Credenciais erradas');
     }
   }
 
   async function signOut(): Promise<void> {
     setAuth(undefined);
-    AsyncStorage.removeItem("@AuthData");
+    AsyncStorage.removeItem('@AuthData');
 
     return;
   }

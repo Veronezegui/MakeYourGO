@@ -1,7 +1,7 @@
-import * as React from "react";
-import { useAuth } from "../../contexts/AuthContext";
+import * as React from 'react';
+import { useAuth } from '../../contexts/AuthContext';
 
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome } from '@expo/vector-icons';
 
 import {
   ButtonExitView,
@@ -15,8 +15,8 @@ import {
   Subtitle,
   Title,
   TitleButton,
-  TitleExitButton,
-} from "./styles";
+  TitleExitButton
+} from './styles';
 
 function CustomDrawerContent() {
   const { authData, signOut } = useAuth();

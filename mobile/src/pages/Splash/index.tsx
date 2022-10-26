@@ -6,7 +6,7 @@ import splashJson from '../../assets/animation-splash.json';
 import LogoEscritaSvg from '../../assets/makeyourgo.svg';
 import LogoSvg from '../../assets/logo.svg';
 
-import { Dimensions } from 'react-native';
+import { Dimensions, StatusBar } from 'react-native';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 
 import Animated, {
@@ -74,7 +74,11 @@ export const Splash: React.FC = () => {
 
   return (
     <Container>
-
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
       <LogoView>
         <Animated.View style={[logoStyle]}>
           <LogoEscritaSvg />
