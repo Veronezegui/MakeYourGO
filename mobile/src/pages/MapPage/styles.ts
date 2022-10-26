@@ -71,6 +71,7 @@ export const ModalPrice = styled.Text`
 
 export const DrawerOpenButton = styled.TouchableOpacity`
   position: absolute;
-  left: ${RFValue(23)}px;
-  top: ${RFValue(55)}px;
+  left: ${RFValue(18)}px;
+  top: ${RFValue(30)}px;
+
 `;

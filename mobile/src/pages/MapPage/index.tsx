@@ -27,6 +27,7 @@ import { RidesCard } from '../../components/RidesCard';
 // import * as WebBrowser from 'expo-web-browser';
 
 import { useNavigation } from '@react-navigation/native';
+import { StatusBar } from 'react-native';
 
 // import { googleGeocodeAsync } from 'expo-location/build/LocationGoogleGeocoding';
 
@@ -509,6 +510,11 @@ export function MapPage() {
   return (
     <>
       <Container>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
         <MapView
           customMapStyle={mapStyle}
           provider={PROVIDER_GOOGLE}
@@ -617,7 +623,7 @@ export function MapPage() {
         </PlaceView>
 
         <DrawerOpenButton onPress={() => navigation.toggleDrawer()}>
-          <Feather name="menu" size={25} color="#262626" />
+          <Feather name="menu" size={30} color="#FFFFFFFF" />
         </DrawerOpenButton>
 
         <BottomSheet
@@ -671,7 +677,6 @@ export function MapPage() {
       <Modal
         visible={modalVisible}
         onRequestClose={() => {
-          signOut();
           setModalVisible(false);
         }}
         onConfirm={() => {
