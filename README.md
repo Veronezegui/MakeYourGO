@@ -17,4 +17,8 @@
   
 </p>
 
-<p></p>
+## 💻 Sobre o projeto
+
+MakeYourGO - é uma aplicação desenvolvida em React Native com Typescript e styled-components. Trata-se de um sistema que realiza a comparação entre aplicativos de corrida privada como uber, 99, cabify, etc, exibindo os valores e o tempo de espera de cada um para uma viagem com origem e destino informados. Além disso, é possível realizar o pedido da corrida através dele. 
+
+---
