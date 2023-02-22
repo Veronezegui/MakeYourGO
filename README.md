@@ -36,3 +36,20 @@ MakeYourGO - é uma aplicação desenvolvida em React Native com Typescript e st
 - [x] Menu lateral com informações do usuário e opção de signOut.  
 
 ---
+## 🦸 Autor
+
+<img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/47906992?v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Guilherme Veroneze</b></sub></a> 🚀
+ <br />
+
+
+---
+
+## 📝 Licença
+
+Este projeto está sob a licença [MIT](./LICENSE).
+
+Feito com muita dedicação por Guilherme Veroneze 👋🏽 [Entre em contato!](https://github.com/Veronezegui)
+
+---
