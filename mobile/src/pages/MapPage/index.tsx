@@ -452,6 +452,11 @@ export function MapPage() {
           backgroundColor="transparent"
           translucent
         />
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
         <MapView
           customMapStyle={mapStyle}
           provider={PROVIDER_GOOGLE}
