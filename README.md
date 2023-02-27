@@ -53,6 +53,7 @@ MakeYourGO - é uma aplicação desenvolvida em React Native com Typescript e st
     <img alt="Visual" title="Waiting" src="./waiting.png" width="200px" height="400px">
 </p>
 
+---
 
 ## 🦸 Autor
 
