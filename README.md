@@ -36,6 +36,15 @@ MakeYourGO - é uma aplicação desenvolvida em React Native com Typescript e st
 - [x] Menu lateral com informações do usuário e opção de signOut.  
 
 ---
+
+## 🎨 Layout
+
+<p>
+    <img >
+</p>
+
+---
+
 ## 🦸 Autor
 
 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/47906992?v=4" width="100px;" alt=""/>
@@ -46,13 +55,6 @@ MakeYourGO - é uma aplicação desenvolvida em React Native com Typescript e st
 
 ---
 
-## 🎨 Layout
-
-<p>
-    <img >
-</p>
-
----
 
 ## 📝 Licença
 
