@@ -41,7 +41,8 @@ MakeYourGO - é uma aplicação desenvolvida em React Native com Typescript e st
 
 <p>
     <img alt="Visual" title="#Visual" src="./login.png" width="200px">
-    <img alt="Visual" title="#Visual" src="./register.png" width="200px" style="margin-left: 50px;">
+    <img alt="Visual" title="#Visual" src="./register.png" width="200px">
+    <img alt="Visual" title="#Visual" src="./mapPage.png" width="200px">
 </p>
 
 ---
