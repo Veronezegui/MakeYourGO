@@ -46,6 +46,14 @@ MakeYourGO - é uma aplicação desenvolvida em React Native com Typescript e st
 
 ---
 
+## 🎨 Layout
+
+<p>
+    <img >
+</p>
+
+---
+
 ## 📝 Licença
 
 Este projeto está sob a licença [MIT](./LICENSE).
